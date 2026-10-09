@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Super Dream – Metrix Score | Tesseract Labs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#060818;--bg2:#12163c;--c:rgba(20,24,66,.55);--t:#eaf0ff;--m:#93a0cf;--p:#7c5cff;--a:#22e1ff;--k:#ff5ca8;--b:rgba(140,160,255,.22);--pa:34,225,255;--pb:255,92,168;--blue:#22e1ff;--tangerine:#ff8a3d;--gold:#ffc857;--muted:var(--m);--muted-2:var(--m);--g:linear-gradient(120deg,#22e1ff,#7c5cff 45%,#ff5ca8 75%,#22e1ff);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1efff;--bg2:#fff;--c:rgba(255,255,255,.72);--t:#161a3d;--m:#5a6396;--p:#5b3df5;--a:#0891b2;--k:#db2777;--b:rgba(91,61,245,.22);--pa:91,61,245;--pb:219,39,119;--blue:#0891b2;--tangerine:#e8590c;--gold:#b7791f}}
+:root[data-theme="light"]{--bg:#f1efff;--bg2:#fff;--c:rgba(255,255,255,.72);--t:#161a3d;--m:#5a6396;--p:#5b3df5;--a:#0891b2;--k:#db2777;--b:rgba(91,61,245,.22);--pa:91,61,245;--pb:219,39,119;--blue:#0891b2;--tangerine:#e8590c;--gold:#b7791f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--t);font:15px/1.6 Sora,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-25%;z-index:0;pointer-events:none;background:radial-gradient(40% 40% at 20% 20%,rgba(124,92,255,.38),transparent),radial-gradient(35% 35% at 80% 30%,rgba(34,225,255,.26),transparent),radial-gradient(40% 40% at 50% 92%,rgba(255,92,168,.24),transparent);animation:drift 20s ease-in-out infinite alternate}
+#pc{position:fixed;inset:0;z-index:0;pointer-events:none}
+header,nav,main,footer{position:relative;z-index:1;max-width:920px;margin:auto}
+header{padding:20px 16px 6px;display:flex;gap:14px;align-items:center}
+.lg{animation:fl 4s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(var(--pa),.7))}.lg g{transform-origin:20px 20px;animation:spin 14s linear infinite}
+h1{margin:0;font:700 26px "Space Grotesk",Sora,sans-serif;letter-spacing:.3px}
+h1 span,.big,nav{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}nav button{white-space:nowrap}
+main{padding:6px 16px 30px}
+.card{background:var(--c);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--b);border-radius:20px;padding:16px;margin:12px 0;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-3px);border-color:rgba(var(--pa),.55);box-shadow:0 16px 44px -20px rgba(var(--pa),.7)}
+.in>*{animation:up .65s cubic-bezier(.2,.8,.2,1) backwards}.in>:nth-child(2){animation-delay:.07s}.in>:nth-child(3){animation-delay:.14s}.in>:nth-child(4){animation-delay:.21s}.in>:nth-child(5){animation-delay:.28s}.in>:nth-child(n+6){animation-delay:.35s}
+button,select,input,textarea{font:inherit;color:var(--t);background:rgba(128,140,255,.1);border:1px solid var(--b);border-radius:12px;padding:8px 13px;transition:border-color .25s,box-shadow .25s,background .25s;outline:0}
+input:focus,select:focus,textarea:focus{border-color:var(--a);box-shadow:0 0 0 3px rgba(var(--pa),.25)}
+option{background:var(--bg2);color:var(--t)}input[type=checkbox]{accent-color:var(--p);width:16px;height:16px}
+button,label.u{position:relative;overflow:hidden;cursor:pointer;transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s,border-color .25s,background .25s}
+button:hover,label.u:hover{transform:translateY(-3px) scale(1.04);border-color:var(--a);box-shadow:0 10px 26px -10px rgba(var(--pa),.9)}
+button:active,label.u:active{transform:scale(.92)}
+button.on{background:var(--g);background-size:250% 100%;color:#fff;border-color:transparent;animation:shine 5s linear infinite;box-shadow:0 8px 26px -8px rgba(124,92,255,.9)}
+label.u{display:inline-block;padding:5px 14px;border:1px dashed var(--a);border-radius:99px;color:var(--a);font-size:13px;font-weight:600;justify-self:end}
+.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:rp .65s ease-out;pointer-events:none}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.g{flex:1;min-width:140px}.m{color:var(--m);font-size:13px}
+.big{font:700 54px/1 "Space Grotesk",sans-serif;filter:drop-shadow(0 0 14px rgba(var(--pa),.5))}
+.bar{height:10px;background:rgba(128,140,255,.18);border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;background:var(--g);background-size:250% 100%;animation:shine 3s linear infinite;transition:width 1.1s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 14px rgba(var(--pa),.8)}
+.it{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:12px 0;border-top:1px solid var(--b);transition:background .25s}.it:first-of-type{border-top:0}
+.tag{font-size:12px;padding:2px 10px;border-radius:99px;background:rgba(var(--pa),.14);color:var(--a);border:1px solid var(--b)}.warn{color:#ff8a5c}
+.ch{max-height:340px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+.bu{padding:10px 14px;border-radius:16px;max-width:88%;animation:pop .35s cubic-bezier(.3,1.6,.5,1)}
+.me{align-self:flex-end;background:var(--g);background-size:250% 100%;color:#fff}.ai{background:rgba(128,140,255,.16);border:1px solid var(--b)}
+input[type=number]{width:96px}textarea,input.w{width:100%}
+/* ---------- SIGNATURE ---------- */
+.signature{
+  text-align:center; padding:50px 20px 10px; position:relative; z-index:1;
+  animation:sig-in .8s ease both;
+}
+@keyframes sig-in{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;} }
+
+.signature .sig-line{
+  width:60px; height:2px; margin:0 auto 18px; border-radius:2px;
+  background:linear-gradient(90deg, var(--blue), var(--tangerine), var(--gold));
+}
+.signature .sig-name{
+  font-family:'Syne',sans-serif; font-weight:700; font-size:30px; letter-spacing:1px;
+  background:linear-gradient(100deg, var(--gold), var(--tangerine) 55%, var(--blue));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.signature .sig-role{
+  margin-top:6px; font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:2px; text-transform:uppercase; color:var(--muted);
+}
+.signature .sig-role b{ color:var(--gold); font-weight:500; }
+.signature .sig-note{
+  margin-top:10px; font-size:12.5px; color:var(--muted-2); font-style:italic;
+}
+@media (prefers-reduced-motion:reduce){ .signature{ animation:none; } }
+@keyframes up{from{opacity:0;transform:translateY(24px) scale(.97)}}
+@keyframes pop{from{opacity:0;transform:scale(.7) translateY(8px)}}
+@keyframes shine{to{background-position:250% 0}}
+@keyframes drift{to{transform:translate(4%,-3%) rotate(6deg) scale(1.1)}}
+@keyframes fl{50%{transform:translateY(-5px)}}@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+@keyframes wr{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes grow{from{width:0}}
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
+@media print{#pc,nav,header,.np,footer{display:none}body{background:#fff;color:#000}body::before{display:none}.card{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
+</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@700&family=Sora:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet"></head><body>
+<canvas id="pc"></canvas>
+<header><svg class="lg" viewBox="0 0 40 40" width="46" height="46" fill="none" stroke="url(#gg)" stroke-width="2" stroke-linejoin="round"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22e1ff"/><stop offset=".5" stop-color="#7c5cff"/><stop offset="1" stop-color="#ff5ca8"/></linearGradient></defs><g><rect x="5" y="5" width="22" height="22"/><rect x="13" y="13" width="22" height="22"/><path d="M5 5l8 8M27 5l8 8M5 27l8 8M27 27l8 8"/></g></svg>
+<div><h1>Super <span>Dream</span></h1><div class="m">Metrix Score Studio · by Tesseract Labs</div></div></header>
+<nav id="nav"></nav><main id="app" class="in"></main>
+<!-- ============ SIGNATURE ============ -->
+<section class="signature">
+  <div class="sig-line"></div>
+  <div class="sig-name">Raghul</div>
+  <div class="sig-role">Founder · <b>Tesseract Labs</b></div>
+  <p class="sig-note">Built by one student, for every student after.</p>
+</section>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// [cat,name,type,max,kind(s=semester,b=break),deadline(p=placement,i=internship),weeks,hint,opts]
+const CAT={A:'Academics',B:'GitHub',C:'Coding practice',D:'Internships',E:'Certifications',F:'Projects',G:'Hackathons',H:'Other'};
+const M=[
+['A','10th %','p',2.5,'s','p',0,'Upload marksheet'],
+['A','12th %','p',2.5,'s','p',0,'Upload marksheet'],
+['A','CGPA (out of 10)','c',5,'s','p',0,'Keep CGPA high; upload grade sheet'],
+['B','GitHub contributions / repositories','l',5,'s','p',4,'Push 5+ quality repos with clear READMEs'],
+['B','Monthly contribution frequency','l',2,'s','p',8,'Commit at least once every month'],
+['B','Projects done for community','l',3,'b','p',4,'Build or contribute to an open-source / NGO project'],
+['B','Collaborations','l',5,'s','p',3,'Raise PRs / collaborate on others\' repos'],
+['C','Badges / recognitions earned','l',5,'s','p',6,'Earn HackerRank / LeetCode / CodeChef badges'],
+['C','Medium & difficult questions solved','l',5,'s','p',10,'Solve 3-4 medium/hard problems each week'],
+['D','IIT / NIT / SRM internship cycle','b',5,'b','i',6,'Apply to institute research internships early'],
+['D','Fortune 500 internship','b',4,'b','i',6,'Apply via campus portal / LinkedIn'],
+['D','Small company internship','b',3,'b','i',6,'Easiest to land; apply to startups'],
+['D','Internship less than 3 months','b',2,'b','i',4,'A 4-8 week internship in a break counts'],
+['D','Paid internship','b',1,'b','i',6,'Look for stipend-based roles'],
+['E','Cisco/CCNA/CCNP/MCNA/MCNP/Matlab/Redhat/IBM','b',5,'b','p',6,'Pick one vendor cert and take the exam in a break'],
+['E','NPTEL certificate','b',3,'b','p',12,'Enrol in NPTEL course; exam in the next cycle'],
+['E','Coursera certificate','b',2,'b','p',4,'Finish one course + certificate'],
+['E','Programming certification','b',1,'s','p',3,'Any recognised language certification'],
+['E','Udemy / Elab certificate','b',0.5,'s','p',2,'Finish one short course'],
+['F','IIT / NIT / DRDO project','b',5,'b','p',8,'Seek a project with a faculty/lab/DRDO guide'],
+['F','Government project','b',4,'b','p',8,'Join a govt / smart-city / grant project'],
+['F','Mobile & web app projects','l',3,'b','p',5,'Ship and deploy 1-3 apps'],
+['F','Mini project (1 or 2)','l',2,'s','p',4,'Complete mini project, upload report'],
+['F','Full-stack developer (FSD) project','b',5,'b','p',6,'Build and deploy a full-stack project'],
+['G','Coding competition / hackathon','o',5,'b','p',3,'Enter hackathons in breaks',[[0,'None'],[2,'Participated'],[3,'Third prize'],[4,'Second prize'],[5,'First prize']]],
+['H','In-house projects (4 each, max 8)','n',8,'s','p',6,'Do projects through campus labs/clubs'],
+['H','Professional body membership','b',2,'s','p',1,'Join IEEE / CSI / ACM'],
+['H','Assessment marks (SHL / NCET)','a',10,'s','p',2,'Practise aptitude, then attempt the assessment']];
+const TIER=[[90,10],[80,9],[70,8],[65,7],[60,6],[55,5],[50,4],[40,3],[30,2],[25,1]];
+let S=(()=>{try{return JSON.parse(localStorage.getItem('sd'))||{}}catch(e){return{}}})();S={deg:'btech',sem:5,v:{},n:'',bio:'',...S};
+const save=()=>{try{localStorage.setItem('sd',JSON.stringify(S))}catch(e){}};
+let db,C=[],tab='home',chat=[];
+const idb=()=>db?Promise.resolve(db):new Promise((res,rej)=>{try{const r=indexedDB.open('sd',1);r.onupgradeneeded=()=>r.result.createObjectStore('c',{keyPath:'id',autoIncrement:true});r.onsuccess=()=>{db=r.result;res(db)};r.onerror=()=>rej()}catch(e){rej()}});
+const tx=async(m,f)=>{const d=await idb();return new Promise((res,rej)=>{const t=d.transaction('c',m),o=f(t.objectStore('c'));t.oncomplete=()=>res(o&&o.result);t.onerror=()=>rej()})};
+const loadC=async()=>{try{C=(await tx('readonly',s=>s.getAll()))||[]}catch(e){C=[]}};
+const sc=i=>{const m=M[i],v=S.v[i],x=+v||0,mx=m[3];switch(m[2]){case'p':return Math.min(x,100)/100*mx;case'c':return Math.min(x,10)/10*mx;case'l':return Math.min(x,mx);case'b':return v?mx:0;case'o':return x;case'n':return Math.min(x*4,8);case'a':for(const[t,p]of TIER)if(x>=t)return p;return 0}return 0};
+const total=()=>M.reduce((a,_,i)=>a+sc(i),0),maxT=()=>M.reduce((a,m)=>a+m[3],0);
+const D=()=>S.deg=='btech'?7:8,I=()=>S.deg=='btech'?6:7,maxSem=()=>S.deg=='btech'?8:10;
+function phases(){const s=+S.sem,P=[];let y=s%2?2026:2027;for(let k=s;k<D();k++){P.push({t:'s',k,l:'Semester '+k+(k==s?' (now)':''),cap:14,load:0,items:[]});
+if(k%2){P.push({t:'b',k,l:'Winter break · Dec '+y+' – Jan '+(y+1),cap:6,load:0,items:[]});y++}else P.push({t:'b',k,l:'Summer break · Jun – Aug '+y,cap:10,load:0,items:[]})}return P}
+function plan(){const P=phases(),T=[];M.forEach((m,i)=>{const g=m[3]-sc(i);if(g>.01&&m[6])T.push({i,g})});
+T.sort((a,b)=>(M[a.i][5]=='i'?0:1)-(M[b.i][5]=='i'?0:1)||b.g-a.g);
+T.forEach(t=>{const m=M[t.i],ok=p=>m[5]!='i'||p.k<I();let A=P.filter(p=>p.t==m[4]&&ok(p));if(!A.length)A=P.filter(ok);if(!A.length)A=P;if(!A.length)return;
+const p=A.reduce((a,b)=>a.load/a.cap<=b.load/b.cap?a:b);p.items.push(t.i);p.load+=m[6]});return P}
+const gaps=()=>M.map((m,i)=>({i,g:m[3]-sc(i)})).filter(x=>x.g>.01&&M[x.i][6]).sort((a,b)=>b.g/M[b.i][6]-a.g/M[a.i][6]);
+const nm=i=>esc(M[i][1]);
+const TABS=[['home','Dashboard'],['met','Metrix'],['plan','My Plan'],['ai','AI Guide'],['drive','Drive'],['port','Portfolio']];
+function nav(){$('#nav').innerHTML=TABS.map(t=>`<button class="${tab==t[0]?'on':''}" data-t="${t[0]}">${t[1]}</button>`).join('')}
+function ctl(i){const m=M[i],v=S.v[i]??'';switch(m[2]){
+case'p':case'c':case'a':case'n':return`<input type=number step=any min=0 data-v=${i} value="${esc(v)}" placeholder="${m[2]=='c'?'0-10':m[2]=='n'?'count':'%'}">`;
+case'b':return`<label><input type=checkbox data-v=${i} ${v?'checked':''}> Done</label>`;
+case'l':return`<select data-v=${i}>${Array.from({length:m[3]+1},(_,k)=>`<option ${v==k?'selected':''}>${k}</option>`).join('')}</select>`;
+case'o':return`<select data-v=${i}>${m[8].map(o=>`<option value=${o[0]} ${v==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select>`}}
+function home(){const t=total(),mx=maxT(),s=+S.sem;
+const dl=(l,k)=>`<div>${l}: <b>before Semester ${k}</b> <span class="tag ${s>=k?'warn':''}">${s>=k?'deadline reached':(k-s)+' sem(s) left'}</span></div>`;
+const cats=Object.keys(CAT).map(c=>{let a=0,b=0;M.forEach((m,i)=>{if(m[0]==c){a+=sc(i);b+=m[3]}});return`<div class="g"><div class="m">${CAT[c]} ${a.toFixed(1)}/${b}</div><div class="bar"><i style="width:${a/b*100}%"></i></div></div>`}).join('');
+return`<div class="card"><div class="row"><div><div class="m">Degree</div><button data-d="btech" class="${S.deg=='btech'?'on':''}">B.Tech</button> <button data-d="mtech" class="${S.deg=='mtech'?'on':''}">M.Tech (Int)</button></div>
+<div><div class="m">Current semester</div><select id="sem">${Array.from({length:maxSem()},(_,k)=>`<option ${s==k+1?'selected':''}>${k+1}</option>`).join('')}</select></div></div></div>
+<div class="card"><div class="row"><div class="big">${t.toFixed(1)}</div><div class="g"><div class="m">of ${mx} metrix points (${(t/mx*100).toFixed(0)}%)</div><div class="bar"><i style="width:${t/mx*100}%"></i></div></div></div></div>
+<div class="card"><b>Deadlines</b>${dl('Internship metrix',I())}${dl('Placement metrix (all certificates)',D())}<div class="m">Breaks: Dec–Jan after odd semesters, Jun–Aug after even semesters.</div></div>
+<div class="card"><b>By category</b><div class="row" style="margin-top:8px">${cats}</div></div>`}
+function met(){let h='<div class="m">Fill in what you have achieved and attach proof. Scores update instantly.</div>';
+Object.keys(CAT).forEach(c=>{h+=`<div class="card"><b>${CAT[c]}</b>`;M.forEach((m,i)=>{if(m[0]!=c)return;const n=C.filter(x=>x.item==i).length;
+h+=`<div class="it"><div>${nm(i)} <span class="tag">max ${m[3]}</span><div class="m">${esc(m[7])}${m[5]=='i'?' · internship deadline':''}</div></div><div>${ctl(i)}</div>
+<div class="m">Score <b>${sc(i).toFixed(1)}</b> · ${n} file(s)</div><label class="u">+ Upload certificate<input type=file hidden data-up=${i} accept="image/*,application/pdf"></label></div>`});h+='</div>'});return h}
+function planV(){if(+S.sem>=D())return'<div class="card warn">You are already at/after the placement deadline semester. Prioritise the biggest gaps in the AI Guide tab.</div>';
+let h=`<div class="m">Auto-plan for ${S.deg=='btech'?'B.Tech':'M.Tech (Int)'}, Semester ${S.sem} onward. Tasks needing long free time sit in breaks; ongoing habits sit in semesters. Internship tasks finish before Semester ${I()}.</div>`;
+plan().forEach(p=>{const over=p.load>p.cap;h+=`<div class="card"><div class="row"><b class="g">${p.l}</b><span class="tag ${over?'warn':''}">${p.load}/${p.cap} wks</span></div>`+
+(p.items.length?p.items.map(i=>`<div class="it"><div>${nm(i)}<div class="m">${esc(M[i][7])}</div></div><span class="tag">+${(M[i][3]-sc(i)).toFixed(1)} pts${M[i][5]=='i'?' · intern':''}</span></div>`).join(''):'<div class="m">Nothing scheduled – rest or revise!</div>')+'</div>'});
+return h}
+function reply(q){q=q.toLowerCase();const P=plan(),cur=P[0];const list=a=>'<ul>'+a.map(x=>`<li>${x}</li>`).join('')+'</ul>';
+if(/holiday|break|vacation|summer|winter/.test(q)){const b=P.find(p=>p.t=='b');return b?`Next break: <b>${b.l}</b>. Use it for:`+list(b.items.map(i=>`${nm(i)} (+${(M[i][3]-sc(i)).toFixed(1)})`)):'No breaks left before your deadline.'}
+if(/intern/.test(q)){const a=M.map((m,i)=>i).filter(i=>M[i][5]=='i'&&sc(i)<M[i][3]);return`Internship metrix must be done <b>before Semester ${I()}</b>. Open items:`+list(a.map(i=>`${nm(i)} (+${M[i][3]})`))+'Apply 2-3 months before a break starts.'}
+if(/cert|nptel|coursera|upload|proof/.test(q)){const a=M.map((m,i)=>i).filter(i=>M[i][0]=='E'&&sc(i)<M[i][3]);return'Certification items still open:'+list(a.map(i=>`${nm(i)} (+${M[i][3]})`))+'Upload each certificate in the <b>Metrix</b> tab; it is stored in your Drive.'}
+if(/deadline|when|last date/.test(q))return`Internship metrix: before Sem ${I()}. Placement metrix: before Sem ${D()}. You are in Sem ${S.sem}.`;
+if(/plan|next|what|todo|start|task/.test(q))return`Right now (${cur?cur.l:'—'}) focus on:`+list((cur?cur.items:[]).map(i=>`${nm(i)} – ${esc(M[i][7])}`));
+if(/score|gap|improve|increase|quick|easy/.test(q)){return`Best points per effort:`+list(gaps().slice(0,5).map(x=>`${nm(x.i)} (+${x.g.toFixed(1)} pts, ~${M[x.i][6]} wks)`))}
+if(/cgpa|10th|12th/.test(q))return'CGPA, 10th and 12th are scored from your marks (CGPA/10 × 5). Only CGPA can still change: score well in remaining semesters.';
+return`Your score is <b>${total().toFixed(1)}/${maxT()}</b>. Ask me about: <i>my plan</i>, <i>holiday tasks</i>, <i>internship</i>, <i>certificates</i>, <i>quick score gains</i>, or <i>deadlines</i>.`}
+function ai(){if(!chat.length)chat.push({a:1,h:reply('')});
+return`<div class="card"><div class="ch" id="ch">${chat.map(c=>`<div class="bu ${c.a?'ai':'me'}">${c.a?c.h:esc(c.h)}</div>`).join('')}</div>
+<div class="row" style="margin-top:10px"><input class="w g" id="q" placeholder="Ask: what should I do this break?"><button id="go">Send</button></div>
+<div class="row" style="margin-top:8px">${['My plan','Holiday tasks','Quick score gains','Internship','Certificates'].map(x=>`<button data-q="${x}">${x}</button>`).join('')}</div></div>`}
+function drive(){const sz=C.reduce((a,c)=>a+(c.blob?c.blob.size:0),0);
+return`<div class="m">${C.length} file(s) · ${(sz/1048576).toFixed(1)} MB · stored privately in this browser. Upload from the Metrix tab so each file is linked to its metrix item.</div>`+
+(C.length?C.map(c=>`<div class="card row"><div class="g"><b>${esc(c.name)}</b><div class="m">${nm(c.item)} · ${esc(c.date)}</div></div><button data-dl="${c.id}">Open</button><button data-rm="${c.id}">Delete</button></div>`).join(''):'<div class="card m">No certificates yet.</div>')}
+function port(){const done=M.map((m,i)=>i).filter(i=>sc(i)>0&&!/^(p|c)$/.test(M[i][2]));
+return`<div class="card np"><input class="w" id="pn" placeholder="Your name" value="${esc(S.n)}"><textarea id="pb" rows=3 placeholder="Short bio / career goal" style="margin-top:8px">${esc(S.bio)}</textarea></div>
+<div class="card"><h2 style="margin:0">${esc(S.n)||'Your Name'}</h2><div class="m">${S.deg=='btech'?'B.Tech':'M.Tech (Int)'} · Semester ${S.sem} · Metrix score ${total().toFixed(1)}/${maxT()}</div><p>${esc(S.bio)}</p>
+<div class="m">10th ${S.v[0]||'–'}% · 12th ${S.v[1]||'–'}% · CGPA ${S.v[2]||'–'}</div></div>`+
+Object.keys(CAT).map(c=>{const a=done.filter(i=>M[i][0]==c);return a.length?`<div class="card"><b>${CAT[c]}</b>`+a.map(i=>`<div class="it"><div>${nm(i)}<div class="m">${C.filter(x=>x.item==i).map(x=>esc(x.name)).join(', ')}</div></div><span class="tag">${sc(i).toFixed(1)} pts</span></div>`).join('')+'</div>':''}).join('')+
+(done.length?'':'<div class="card m">Achievements appear here as you add them in the Metrix tab.</div>')+'<button class="np" onclick="window.print()">Print / Save PDF</button>'}
+const V={home,met,plan:planV,ai,drive,port};
+function draw(){nav();$('#app').innerHTML=V[tab]();const c=$('#ch');if(c)c.scrollTop=c.scrollHeight}
+const send=t=>{if(!t.trim())return;chat.push({h:t},{a:1,h:reply(t)});draw()};
+document.addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
+if(d.t){tab=d.t;if(tab=='drive'||tab=='met'||tab=='port')await loadC();draw();const a=$('#app');a.classList.remove('in');void a.offsetWidth;a.classList.add('in')}
+else if(d.d){S.deg=d.d;if(+S.sem>maxSem())S.sem=maxSem();save();draw()}
+else if(d.q)send(d.q);else if(b.id=='go')send($('#q').value);
+else if(d.dl){const c=C.find(x=>x.id==d.dl);if(c){const u=URL.createObjectURL(c.blob),a=document.createElement('a');a.href=u;a.download=c.name;a.target='_blank';a.click();setTimeout(()=>URL.revokeObjectURL(u),9e3)}}
+else if(d.rm){try{await tx('readwrite',s=>s.delete(+d.rm))}catch(x){}await loadC();draw()}});
+document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.id=='q')send(e.target.value)});
+document.addEventListener('change',async e=>{const t=e.target,d=t.dataset;
+if(t.id=='sem'){S.sem=+t.value;save();draw()}
+else if(d.v!==undefined){S.v[d.v]=t.type=='checkbox'?t.checked:t.value;save();const y=window.scrollY;draw();scrollTo(0,y)}
+else if(d.up!==undefined&&t.files[0]){const f=t.files[0];if(f.size>15e6){alert('File too large (max 15 MB)');return}
+try{await tx('readwrite',s=>s.add({item:+d.up,name:f.name,type:f.type,blob:f,date:new Date().toLocaleDateString()}))}catch(x){alert('Storage unavailable in this browser');return}
+await loadC();const y=window.scrollY;draw();scrollTo(0,y)}
+else if(t.id=='pn'){S.n=t.value;save()}else if(t.id=='pb'){S.bio=t.value;save();draw()}});
+document.addEventListener('input',e=>{if(e.target.id=='pn'){S.n=e.target.value;save()}});
+(()=>{const c=$('#pc'),x=c.getContext('2d'),R=matchMedia('(prefers-reduced-motion:reduce)').matches;let W,H,P=[],mx=-9e3,my=-9e3;
+const rs=()=>{W=c.width=innerWidth;H=c.height=innerHeight;P=Array.from({length:Math.min(90,Math.floor(W*H/15000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.55,vy:(Math.random()-.5)*.55,r:Math.random()*1.9+.6,k:Math.random()<.3}))};
+const col=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();let ca=col('--pa')||'34,225,255',cb=col('--pb')||'255,92,168';setInterval(()=>{ca=col('--pa')||ca;cb=col('--pb')||cb},2500);
+addEventListener('resize',rs);addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+function f(){x.clearRect(0,0,W,H);for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy)||1;if(d<130){p.x+=dx/d*1.8;p.y+=dy/d*1.8}
+x.fillStyle=`rgba(${p.k?cb:ca},.85)`;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()}
+for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<125){x.strokeStyle=`rgba(${ca},${.25*(1-d/125)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+if(!R)requestAnimationFrame(f)}
+rs();f()})();
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('button,label.u');if(!b)return;const r=b.getBoundingClientRect(),z=Math.max(r.width,r.height)*2,o=document.createElement('span');o.className='rip';o.style.cssText=`width:${z}px;height:${z}px;left:${e.clientX-r.left-z/2}px;top:${e.clientY-r.top-z/2}px`;b.appendChild(o);setTimeout(()=>o.remove(),700)});
+loadC().then(draw);draw();
+</script></body></html>
